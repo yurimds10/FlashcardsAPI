@@ -1,8 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using FlashcardsAPI.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddDbContext<UserAccountContext>(opt =>
+    opt.UseInMemoryDatabase("UserAccountList"));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
